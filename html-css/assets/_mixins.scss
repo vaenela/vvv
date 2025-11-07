@@ -1,0 +1,50 @@
+@mixin flex-layout($justify: space-between, $align: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin button-base {
+  text-decoration: none;
+  padding: 15px 32px;
+  border-radius: 130px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+@mixin button-style($bg-color: $primary-color, $text-color: $secondary-color) {
+  @include button-base;
+  color: $text-color;
+  background-color: $bg-color;
+  
+  &:hover {
+    background-color: $text-color;
+    color: $bg-color;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@mixin card-base {
+  background: $secondary-color;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+@mixin card-style {
+  @include card-base;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+}
+
+@mixin grid-layout($columns: 3, $gap: 25px) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
